@@ -1,11 +1,19 @@
 import time
+import random
+
+# Global variables
+inventory = []
 
 def introduction():
-    print("Welcome to the Text Adventure Game!")
+    print("Welcome to the Advanced Text Adventure Game!")
     time.sleep(1)
-    print("You find yourself standing at a crossroads.")
+    print("You find yourself at the beginning of an epic journey.")
     time.sleep(1)
-    print("Which path will you take?")
+    print("Your goal is to reach the treasure hidden deep within the enchanted forest.")
+    time.sleep(1)
+    print("Along the way, you'll encounter challenges, battles, and puzzles.")
+    time.sleep(1)
+    print("Let the adventure begin!")
 
 def crossroads():
     print("\nYou are at a crossroads.")
@@ -32,7 +40,10 @@ def forest():
     if choice == '1':
         print("\nYou investigate the noises and encounter a friendly woodland creature.")
         time.sleep(1)
-        print("The creature guides you safely through the forest.")
+        print("The creature gives you a magical amulet as a token of friendship.")
+        inventory.append("Magical Amulet")
+        time.sleep(1)
+        print("You thank the creature and continue your journey.")
         time.sleep(1)
         print("Congratulations, you've survived the forest!")
         time.sleep(1)
@@ -42,11 +53,20 @@ def forest():
         time.sleep(1)
         print("Suddenly, you stumble upon a sleeping bear!")
         time.sleep(1)
-        print("The bear wakes up and chases you away.")
+        print("The bear wakes up and attacks you.")
         time.sleep(1)
-        print("Game over!")
-        time.sleep(1)
-        play_again()
+        if "Sword" in inventory:
+            print("You draw your sword and defeat the bear!")
+            time.sleep(1)
+            print("Congratulations, you've survived the forest!")
+            time.sleep(1)
+            play_again()
+        else:
+            print("You try to run, but the bear catches up to you.")
+            time.sleep(1)
+            print("Game over!")
+            time.sleep(1)
+            play_again()
     else:
         print("Invalid choice. Please enter 1 or 2.")
         forest()
@@ -63,9 +83,12 @@ def mountains():
     print("2. Stay on the mountain summit.")
     choice = input("Enter your choice (1 or 2): ")
     if choice == '1':
-        print("\nYou enter the cave and find a treasure chest!")
+        print("\nYou enter the cave and find a sword!")
+        inventory.append("Sword")
         time.sleep(1)
-        print("Congratulations, you've found the treasure!")
+        print("Congratulations, you've found a powerful weapon!")
+        time.sleep(1)
+        print("You take the sword and continue your journey.")
         time.sleep(1)
         play_again()
     elif choice == '2':
